@@ -1,5 +1,5 @@
 <html>
 <body>
-<h2>This home page for CMS</h2>
+<h2>This home page for CMS DEMO</h2>
 </body>
 </html>

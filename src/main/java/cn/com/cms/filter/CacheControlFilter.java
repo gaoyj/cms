@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 /**
  * 这里主要提供了js，css缓存
- * @author wuxiaogang 
+ * @author gaoyj 
  *
  */
 public class CacheControlFilter implements Filter {

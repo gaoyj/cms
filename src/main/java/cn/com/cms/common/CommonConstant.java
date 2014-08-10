@@ -4,7 +4,7 @@ package cn.com.cms.common;
 
 /**
  * <p>系统程序用常量</p>
- * @author wuxiaogang
+ * @author gaoyj
  *
  */
 public class CommonConstant {

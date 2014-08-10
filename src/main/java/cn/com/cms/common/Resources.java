@@ -120,7 +120,7 @@ public class Resources extends Object {
 	 * 
 	 * @param key 键值
 	 * @return 常量值
-	 * @author huyunlin
+	 * @author gaoyj
 	 */
 	public static String getData(String key) {
 		
@@ -145,7 +145,7 @@ public class Resources extends Object {
 	 * @param fileName /properties文件名称
 	 * @param key 键值
 	 * @return 常量值
-	 * @author huyunlin
+	 * @author gaoyj
 	 */
 	public static String getData(String fileName,String key) {
 		

@@ -2,7 +2,7 @@ package cn.com.cms.common;
 
 /**
  * <p>系统使用路径常量</p>
- * @author Huyunlin
+ * @author gaoyj
  *
  */
 public class PathCommonConstant extends CommonConstant {

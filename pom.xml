@@ -283,19 +283,92 @@
 			<artifactId>jdom</artifactId>
 			<version>1.1</version>
 		</dependency>
+		<!-- aliyun ACE dependency -->
+		<dependency>
+			<groupId>com.alibaba.appengine</groupId>
+			<artifactId>services-api</artifactId>
+			<version>1.4.15</version>
+		</dependency>
 	</dependencies>
+	<repositories>
+		<repository>
+			<id>acesdk-repository</id>
+			<name>Ace Sdk Repository</name>
+			<url>http://acesdk.github.io/repo</url>
+		</repository>
+	</repositories>
 	<build>
 		<finalName>cms</finalName>
+		<sourceDirectory>${basedir}/src/main/java</sourceDirectory>
+		<outputDirectory>${basedir}/src/main/webapp/WEB-INF/classes</outputDirectory>
+		<defaultGoal>clean</defaultGoal>
+		<resources>
+			<resource>
+				<targetPath></targetPath>
+				<directory>${basedir}/src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 		<pluginManagement>
 			<plugins>
+				<!-- 编译器 编译Java代码 -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>2.3.2</version>
 					<configuration>
+						<debug>true</debug>
 						<source>1.7</source>
 						<target>1.7</target>
+						<encoding>UTF-8</encoding>
 					</configuration>
+				</plugin>
+				<!-- 用来处理资源文件 -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>2.5</version>
+					<configuration>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+				<!-- 单元测试插件 -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.9</version>
+					<configuration>
+						<skipTests>true</skipTests>
+						<testFailureIgnore>true</testFailureIgnore>
+					</configuration>
+				</plugin>
+				<!-- 测试报告 -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-report-plugin</artifactId>
+					<version>2.12.2</version>
+					<configuration>
+						<showSuccess>false</showSuccess>
+					</configuration>
+				</plugin>
+				<!-- 提供单元测试整体覆盖率以及分支覆盖率的统计工具 -->
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>cobertura-maven-plugin</artifactId>
+					<version>2.5.2</version>
+					<configuration>
+						<formats>
+							<format>xml</format>
+						</formats>
+					</configuration>
+					<executions>
+						<execution>
+							<goals>
+								<goal>clean</goal>
+								<goal>check</goal>
+							</goals>
+						</execution>
+					</executions>
 				</plugin>
 				<!-- 得到项目依赖的库文件 -->
 				<plugin>
@@ -303,16 +376,8 @@
 					<artifactId>maven-dependency-plugin</artifactId>
 					<version>2.3</version>
 					<configuration>
-						<outputDirectory>src/main/webapp/WEB-INF/lib</outputDirectory>
+						<outputDirectory>dependencies</outputDirectory>
 					</configuration>
-					<executions>
-						<execution>
-							<phase>install</phase>
-							<goals>
-								<goal>copy-dependencies</goal>
-							</goals>
-						</execution>
-					</executions>
 				</plugin>
 				<!-- tomcat7 -->
 				<plugin>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN" "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+<taglib>
+	<tlibversion>2.0</tlibversion>
+	<jspversion>1.2</jspversion>
+	<shortname>customtag</shortname>
+	<uri>http://www.cms.com.cn/custom-tags</uri>
+	<info>自定义标签</info>
+	<tag>
+		<name>paging</name>
+		<tagclass>cn.com.cms.web.tag.PagingTag</tagclass>
+		<bodycontent>JSP</bodycontent>
+		<attribute>
+			<name>form</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>event</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>url</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>type</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<tag>
+		<name>pagingext</name>
+		<tagclass>cn.com.cms.web.tag.PagingExtTag</tagclass>
+		<bodycontent>JSP</bodycontent>
+		<attribute>
+			<name>func</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>params</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+</taglib>
+
+
+
